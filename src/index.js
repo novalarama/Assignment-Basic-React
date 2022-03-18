@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import Bmi from './pages/Bmi';
 import Cicilan from './pages/Cicilan';
+import Belanja from './pages/Belanja';
 import reportWebVitals from './reportWebVitals';
 
 // load library bootstrap for styling
@@ -14,7 +15,8 @@ import "bootstrap/dist/js/bootstrap.bundle"
 ReactDOM.render(
   <React.StrictMode>
     <Bmi />
-    <Cicilan />
+    {/* <Cicilan />
+    <Belanja /> */}
   </React.StrictMode>,
   document.getElementById('root')
 );

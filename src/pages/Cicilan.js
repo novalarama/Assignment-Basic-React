@@ -43,9 +43,9 @@ export default function Cicilan (props){
                         <div className="col-7">
                             <select name="periode" className="form-control"
                             value={periode} onChange={ev => setPeriode(ev.target.value)}>
-                                <option value={6}>6 Bulan</option>
-                                <option value={12}>12 Bulan</option>
-                                <option value={60}>5 Tahun</option>
+                                <option value="6">6 Bulan</option>
+                                <option value="12">12 Bulan</option>
+                                <option value="60">5 Tahun</option>
                             </select>
                         </div>
                     </div>

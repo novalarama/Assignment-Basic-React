@@ -1,6 +1,7 @@
 import {useState} from "react";
+import Alert from "../components/Alert";
 
-function Bmi(props){
+export default function Bmi(props){
     let [berat, setBerat] = useState(0)
     let [tinggi, setTinggi] = useState(0)
     let [bmi, setBmi] = useState(0)
@@ -17,8 +18,78 @@ function Bmi(props){
             setStatus("Overweight")
         }else if(bmi > 28.1){
             setStatus("Obesitas")
+        }else{
+            setStatus("Tidak ada")
         }
     }
+
+        let alert = () => {
+            if(status === "Underwight"){
+                return(
+                    <Alert type="warning text-center">
+                        <p>Kekurangan Berat badan</p>
+                    </Alert>
+                )
+            }else if(status === "Normal"){
+                return(
+                    <Alert type="success text-center">
+                        <p>Berat Badan Normal</p>
+                    </Alert>
+                )
+            }else if(status === "Overweight"){
+                return(
+                    <Alert type="warning text-center">
+                        <p>Berat Badan Berlebih</p>
+                    </Alert>
+                )
+            }else if(status === "Obesitas"){
+                return(
+                    <Alert type="danger text-center">
+                        <p>Obesitas !</p>
+                    </Alert>
+                )
+            }else if(status === "Tidak ada"){
+                return(
+                    <Alert type="danger text-center">
+                        <p>Masukkan Tingggi dan Berat Anda dulu !</p>
+                    </Alert>
+                )
+            }
+        }
+    // Buat Alert sesuai Status
+    // Alert = () => {
+    //     if(status === "Underweight"){  
+    //         return(
+    //             <Alert type="warning text-center" >
+    //                 <p>Kekurangan Berat Badan</p>
+    //             </Alert>
+    //         )
+    //     }else if(status === "Normal"){
+    //         return(
+    //             <Alert type="info text-center" >
+    //                 <p>Berat badan normal</p>
+    //             </Alert>
+    //         )
+    //     }else if(status === "Overweight"){
+    //         return(
+    //             <Alert type="warning text-center" >
+    //                 <p>Berat Badan Berlebih</p>
+    //             </Alert>
+    //         )
+    //     }else if(status === "Obesitas"){
+    //         return(
+    //             <Alert type="danger text-center" >
+    //                 <p>Obesitas!</p>
+    //             </Alert>
+    //         )
+    //     }else if(status === "Tidak ada"){
+    //         return(
+    //             <Alert type="warning text-center" >
+    //                 <p>Masukkan Badan dan Tinggi dulu!</p>
+    //             </Alert>
+    //         )
+    //     }
+    // }
 
     return(
         <div className="container" style={{fontFamily:`poppins`}}>
@@ -55,13 +126,10 @@ function Bmi(props){
                 <div className="card-footer">
                     <h5 className="text-secondary">
                         {`BMI anda adalah ${bmi}`}
+                        {alert()}
                     </h5>
-                    <div class="alert alert-info" role="alert">
-                        <h6>{`Anda ${status}`}</h6>
-                    </div>
                 </div>
             </div>
         </div>
     )
 }
-export default Bmi
